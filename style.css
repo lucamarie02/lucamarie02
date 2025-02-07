@@ -1,0 +1,429 @@
+/* Reset für alle Elemente */
+* {
+    margin: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    box-shadow: none; /* Entfernt alle Schatten */
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+}
+
+
+/* Körper-Stile */
+body {
+    font-family: "elza-text", sans-serif;  
+    background: white;
+}
+
+/* Header */
+h1 {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    font-weight: normal;
+    font-size: 1.3vw;
+    text-align: center;
+   
+}
+
+h2 {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    font-size: 4vw;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px; 
+    margin-top: 30px;
+    margin-left: 30px;
+    
+}
+
+h3 {
+    font-family: "elza-text", sans-serif;
+    font-size: 2.5vw;
+    font-weight: normal; 
+    font-style: italic;
+ }
+
+ h4 {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    text-align: left;
+    font-size: 2.5vw;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px; 
+    margin-top: 30px;
+    margin-left: 30px;
+    text-transform: lowercase;
+    
+ }
+ 
+
+p {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    text-align: left;
+    font-size: 1.3vw;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px; 
+    margin-top: 30px;
+    margin-left: 30px;
+    line-height: 120%;
+    text-transform: lowercase;
+
+    
+}
+
+h5 {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    text-align: left;
+    font-size: 2.5vw;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0px; 
+    margin-top: 30px;
+    margin-left: 30px;
+    line-height: 120%;
+    text-transform: lowercase;
+
+    
+}
+
+h6 {
+
+    font-family: "elza-text", sans-serif;
+    color: black;
+    font-weight: normal;
+    font-size: 1.3vw;
+    text-align: center;
+
+    
+}
+
+
+
+.container-head{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 2vw;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  z-index: 1000;
+  margin: 0px;
+  padding: 8px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 0.35%;
+  text-align: center;
+  border-bottom: 1px solid black;
+  transition: height 0.3s ease-in-out;
+  
+}
+
+
+#platform-trigger {
+    font-size: 1.3vw; /* Anfangs größer */
+    transition: font-size 0.3s ease-in-out;
+    position: relative;
+    top: 10%;
+
+  }
+
+  #scroll-hide {
+    font-size: 1.3vw; /* Bleibt immer gleich */
+    left: 0%;
+    position: relative;
+    top: 0%; 
+  }
+
+  .container-head.shrink {
+    height: 2vw; 
+  }
+
+  .container-head.shrink #platform-trigger {
+    font-size: 1.3vw; 
+  }
+
+.container {
+    display: flex;                
+    flex-wrap: wrap;              
+    justify-content: space-between; 
+    gap: 0px;
+    box-shadow: none;
+    position: relative;
+    padding-top: 2vw;
+
+}
+
+#scroll-hide {
+    transition: opacity 0.2s ease-out; /* Weicher Übergang beim Verschwinden */
+}
+
+.hidden {
+    opacity: 0; /* Versteckt den Text */
+    pointer-events: none; /* Entfernt Interaktionen */
+}
+
+/* Einzelne Bild-Container */
+.item {
+    width: 50%; 
+    position: relative;
+    box-shadow: none;
+
+    aspect-ratio: 3 / 2;
+}
+
+
+h1#platform-trigger {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  
+.platform-overlay {
+    position: fixed;
+    top: 2vw;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    z-index: 1;
+    
+    
+}
+
+.custom-link {
+    color: #6b6b6b;
+    text-decoration: none;
+  }
+  
+  .custom-link:hover {
+    color: #000000;
+  
+  }
+
+.platform-content {
+    padding: px;
+    max-width: 90%;
+}
+
+.download-link {
+    color:   #6b6b6b; 
+    text-decoration: none;
+}
+
+.download-link:hover {
+    color: #000000; 
+}
+
+
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.close-btn::before {
+    transform: rotate(45deg);
+}
+
+.close-btn::after {
+    transform: rotate(-45deg);
+}
+
+/* Hover-Effekt für den Button */
+.close-btn:hover::before,
+.close-btn:hover::after {
+    background-color:  #6b6b6b;
+}
+
+#platform-trigger {
+    cursor: pointer;
+}
+
+/* Klasse für sichtbares Overlay */
+.platform-overlay.active {
+    display: flex;
+}
+
+/* Overlay für hochladen */
+
+h1#hochladen-trigger {
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    font-size: 1.3vw;
+
+}
+
+.hochladen-overlay {
+    position: fixed;
+    top: 2vw;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    z-index: 1;
+   
+}
+
+.hochladen-content {
+    padding: px; /* Hinweis: Hier fehlt ein Wert */
+    max-width: 90%;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.close-btn::before {
+    transform: rotate(45deg);
+}
+
+.close-btn::after {
+    transform: rotate(-45deg);
+}
+
+/* Hover-Effekt für den Button */
+.close-btn:hover::before,
+.close-btn:hover::after {
+    background-color:  #6b6b6b;
+}
+
+#hochladen-trigger {
+    cursor: pointer;
+}
+
+/* Klasse für sichtbares Overlay */
+.hochladen-overlay.active {
+    display: flex;
+}
+
+
+#shuffle-trigger {
+    cursor: pointer;
+}
+
+
+/* Container für Overlay Bilder */
+.overlay-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    outline: none !important;
+    overflow: hidden;
+    
+}
+
+
+.overlay h3 {
+  text-align: left; 
+  position: absolute; 
+  right: 20px;
+  left: 10px;
+  top: 7px;
+}
+
+.overlay h4 {
+  text-align: right; 
+  position: absolute; 
+  right: 10px;
+  bottom: 7px;
+}
+
+
+.overlay-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Bild passt sich dem Container an */
+    transition: filter 0.3s ease; 
+    filter: blur;
+    box-shadow: none;  /* Entfernt Schatten vom Bild */
+}
+
+/* Overlay-Effekte */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    color: black;  /* Textfarbe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;    /* Initial unsichtbar */
+    transition: opacity 0.3s ease;
+    
+    
+}
+
+
+.overlay-container:hover .overlay {
+    opacity: 100;
+}
+
+.overlay-container:hover img {
+    
+
+}
+
+
+
+
+
+  

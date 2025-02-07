@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    box-shadow: none; 
+    text-transform: lowercase;
+
+}
+
+
+
+h1
+{
+  font-family: "elza-text", sans-serif;;
+  color: black;
+  font-weight: normal;
+  font-size: 1.3vw;
+  text-align: left;
+ 
+  
+}
+
+h2
+{
+  font-family: "elza-text", sans-serif;;
+  text-align: left; 
+  color: black;
+  font-weight: normal;
+  font-size: 1.3vw;
+ 
+ 
+  
+}
+
+h3
+{
+  font-family: "elza-text", sans-serif;;
+  text-align: left; 
+  color: black;
+  font-weight: normal;
+  font-size: 1.3vw;
+  text-align: right;
+  
+ 
+  
+}
+
+
+
+h4 {
+  font-family: "elza-text", sans-serif;
+  color: black;
+  text-align: left;
+  font-size: 2.5vw;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0px; 
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 120%;
+  text-transform: lowercase;
+
+  
+}
+
+
+h5
+{
+  font-family: "elza-text", sans-serif;
+  color: black;
+  text-align: left;
+  font-size: 1.5vw;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0px; 
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 120%;
+  text-transform: lowercase;
+
+  
+}
+
+h6 {
+  font-family: "elza-text", sans-serif;
+  color: black;
+  text-align: left;
+  font-size: 1.3vw;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0px; 
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 120%;
+  text-transform: lowercase;
+
+  
+}
+
+  p {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    font-weight: normal;
+    font-size: 1.3vw;
+    text-decoration: none;
+    line-height: 120%;
+
+  }
+
+  p1 {
+    font-family: "elza-text", sans-serif;
+    color: black;
+    text-align: left;
+    font-size: 1.5vw;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0px; 
+    margin-top: 30px;
+    margin-left: 30px;
+    line-height: 120%;
+    text-transform: lowercase;
+ 
+  }
+
+p2 {
+  font-family: "elza-text", sans-serif;;
+  text-align: justify; 
+  color: black;
+  font-weight: normal;
+  font-size: 1.5vw;
+}
+
+
+
+
+.container-head{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 2vw;
+    background-color: #ffffff;
+    display: grid;
+    z-index: 1000;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0px;
+    padding: 8px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.35%;
+    border-bottom: 1px solid black;
+    
+}
+
+.container-head a {
+  text-decoration: none;
+  text-align: left;
+}
+
+
+.container-head h1 {
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Overlay studierenden Styling */
+
+/* Trigger-Button */
+#studierende-trigger {
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay */
+.studierende-overlay {
+  position: fixed;
+  top: 2vw;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: none;
+  z-index: 1;
+  
+}
+
+/* Overlay-Inhalt */
+.studierende-content {
+ padding: px;
+ max-width: 90%;
+}
+
+
+
+/* Schließen-Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.close-btn::before {
+  transform: rotate(45deg);
+}
+
+.close-btn::after {
+  transform: rotate(-45deg);
+}
+
+/* Hover-Effekt für den Button */
+.close-btn:hover::before,
+.close-btn:hover::after {
+  background-color:  #6b6b6b;
+}
+
+#studierende-trigger {
+  cursor: pointer;
+}
+
+/* Klasse für sichtbares Overlay */
+.studierende-overlay.active {
+  display: flex;
+
+}
+
+.custom-link {
+  color: #6b6b6b;
+  text-decoration: none;
+}
+
+.custom-link:hover {
+  color: #000000;
+
+}
+
+/* Overlay projekttitel Styling */
+
+/* Trigger-Button */
+#projekttitel-trigger {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay */
+.projekttitel-overlay {
+  position: fixed;
+  top: 2vw;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: none;
+  z-index: 1;
+  
+}
+
+/* Overlay-Inhalt */
+.projekttitel-content {
+  padding: px;
+  max-width: 90%;
+  
+}
+
+/* Schließen-Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+
+.close-btn:hover::before,
+.close-btn:hover::after {
+    background-color:  #6b6b6b;
+}
+
+/* Klasse für sichtbares Overlay */
+.projekttitel-overlay.active {
+  display: flex;
+}
+
+/* Slideshow */
+
+
+.slideshow-container {
+  position: absolute;
+  top: 2vw;
+  left: 0px;
+  max-width: 50%;
+  height: 480px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+ display: flex;
+
+
+ 
+}
+
+.slide {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  cursor: pointer;
+
+}
+
+
+.slide-container {
+  display: flex;
+  min-width: 100%;
+  height: 480px;
+  object-fit: contain;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2vw;
+  z-index: 20;
+  top: 2vw;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+ 
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  transform: translateY(-2.5vw); 
+  
+}
+
+
+
+
+.linie-1 {
+  position: fixed;
+  top: 509px;
+  left:0; 
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.linie-2 {
+  position: fixed;
+  top: 2vw;
+  left:50%; 
+  height: 480px;
+  width: 1px;
+  background-color: black;
+}
+
+
+.info-text-container {
+  font-family: "elza-text", sans-serif;
+  font-style: normal;
+  font-size: 1.3vw;
+  text-decoration: underline black;
+  display: none; /* Standardmäßig ausgeblendet */
+  position: fixed;
+  top: 2vw;
+  right: 0%;
+  height: 480px; /* Volle Höhe des Containers */
+  width: 50%; /* Nimmt ein Drittel der Breite ein */
+  padding: 20px; /* Abstand vom Rand */
+  
+  overflow-y: auto; /* Falls der Inhalt größer ist, scrollbar machen */
+  box-sizing: border-box; /* Padding wird in die Breite/Höhe einbezogen */
+  z-index: 10; /* Oberhalb anderer Inhalte */
+  line-height: 120%;
+  
+}
+
+.konzept-text-container {
+  font-family: "elza-text", sans-serif;
+  font-style: normal;
+  font-size: 1.3vw;
+  display: none; /* Standardmäßig ausgeblendet */
+  position: fixed;
+  top: 510px;
+  left: 0;
+  height: calc(100vh - 510px); 
+  padding-bottom: 100px;
+  width: 100%; 
+  padding: 20px; /* Abstand vom Rand */
+  z-index: 10; /* Oberhalb anderer Inhalte */
+  overflow-y: auto;
+
+}
+
+
+
+.konzept-text-container p {
+  margin: 0; /* Entfernt unerwünschte Abstände im Text */
+  height: 100%; /* Der Text nimmt 100% der Höhe des Containers ein */
+}
+
+
+
+.info-text-container, .konzept-text-container {
+  display: none;  /* Alle Text-Container sind standardmäßig ausgeblendet */
+}
+
+
+
+/* Buttons */
+.prev-btn, .next-btn {
+
+  position: absolute;  
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  
+}
+
+
+
+
+
+
+
+.prev-btn::after {
+  content: "<";
+}
+
+.next-btn::after {
+  content: ">";
+}
+
+.prev-btn {
+  left: 4%;
+}
+
+.next-btn {
+  right: 4%;
+}
+
+
+
+
