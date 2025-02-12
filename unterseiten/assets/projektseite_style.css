@@ -4,6 +4,7 @@
     box-sizing: border-box;
     box-shadow: none; 
     text-transform: lowercase;
+    pointer-events: auto;
 
 }
 
