@@ -14,7 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const studierendeTrigger = document.getElementById('studierende-trigger');
     const studierendeOverlay = document.getElementById('studierende-overlay');
 
-    // Slideshow Navigation Functions
+    // Lightbox Elements
+    const images = document.querySelectorAll('.slide-container img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    // Swipe Variables
+    let startX, endX;
+
+    // Functions
     function updateSlidePosition() {
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
         updateText(currentIndex + 1);
@@ -30,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlidePosition();
     }
 
-    // Text Update Function
     function updateText(slideNumber) {
         infoTextContainers.forEach(container => container.style.display = 'none');
         konzeptTextContainers.forEach(container => container.style.display = 'none');
@@ -42,23 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (konzeptText) konzeptText.style.display = 'block';
     }
 
-    // Event Listeners for Navigation
-    nextBtn.addEventListener('click', goToNextSlide);
-    prevBtn.addEventListener('click', goToPrevSlide);
-
-    // Lightbox Functionality
-    const images = document.querySelectorAll('.slide-container img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    images.forEach(img => {
-        img.addEventListener('click', function() {
-            lightboxImg.src = this.src;
-            lightbox.style.display = 'flex';
-        });
-    });
-
-    // Overlay Management Functions
     function setupOverlay(trigger, overlay) {
         const closeButton = overlay.querySelector('.close-btn');
 
@@ -77,11 +67,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Setup Overlays
-    setupOverlay(projektTitelTrigger, projektTitelOverlay);
-    setupOverlay(studierendeTrigger, studierendeOverlay);
+    // Initialize the first slide's text
+    updateText(1);
 
-    // Lightbox Close Functionality
+    // Event Listeners for Navigation
+    nextBtn.addEventListener('click', goToNextSlide);
+    prevBtn.addEventListener('click', goToPrevSlide);
+
+    // Swipe functionality for mobile
+    slides.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;  // Save start position
+    });
+
+    slides.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;  // Save end position
+
+        // Determine swipe direction and navigate accordingly
+        if (startX - endX > 50) {
+            goToNextSlide();  // Swipe left, go to the next slide
+        } else if (endX - startX > 50) {
+            goToPrevSlide();  // Swipe right, go to the previous slide
+        }
+    });
+
+    // Lightbox Functionality
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            lightboxImg.src = this.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+
     if (lightbox) {
         const closeLightboxBtn = lightbox.querySelector('.close-btn');
         
@@ -96,28 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize First Slide
-    updateText(1);
+    // Setup Overlays
+    setupOverlay(projektTitelTrigger, projektTitelOverlay);
+    setupOverlay(studierendeTrigger, studierendeOverlay);
 });
-
-    // Swipe Funktionalität
-    let startX, endX;
-
-    // Eventlistener für Touchstart
-    slides.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX; // Speichere die Startposition
-    });
-
-    // Eventlistener für Touchend
-    slides.addEventListener('touchend', (e) => {
-        endX = e.changedTouches[0].clientX; // Speichere die Endposition
-
-        // Vergleiche die Positionen und bestimme den Swipe-Richtung
-        if (startX - endX > 50) {
-            // Wenn nach links gewischt, gehe zum nächsten Slide
-            goToNextSlide();
-        } else if (endX - startX > 50) {
-            // Wenn nach rechts gewischt, gehe zum vorherigen Slide
-            goToPrevSlide();
-        }
-    });
