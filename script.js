@@ -86,4 +86,31 @@ window.addEventListener("scroll", function () {
       header.classList.remove("shrink");
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // iPhone erkennen (nur mobile Safari)
+    const isiPhone = /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isiPhone) {
+        document.querySelectorAll('.item').forEach(item => {
+            let pressTimer;
+            const overlay = item.querySelector('.overlay');
+
+            item.addEventListener('touchstart', () => {
+                pressTimer = setTimeout(() => {
+                    overlay.style.display = 'flex'; // Overlay anzeigen
+                }, 500); // 500ms für Long Press
+            });
+
+            item.addEventListener('touchend', () => {
+                clearTimeout(pressTimer);
+            });
+
+            overlay.addEventListener('click', () => {
+                overlay.style.display = 'none'; // Overlay ausblenden
+            });
+        });
+    }
+});
+
   

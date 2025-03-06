@@ -99,3 +99,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize First Slide
     updateText(1);
 });
+
+    // Swipe Funktionalität
+    let startX, endX;
+
+    // Eventlistener für Touchstart
+    slides.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX; // Speichere die Startposition
+    });
+
+    // Eventlistener für Touchend
+    slides.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX; // Speichere die Endposition
+
+        // Vergleiche die Positionen und bestimme den Swipe-Richtung
+        if (startX - endX > 50) {
+            // Wenn nach links gewischt, gehe zum nächsten Slide
+            goToNextSlide();
+        } else if (endX - startX > 50) {
+            // Wenn nach rechts gewischt, gehe zum vorherigen Slide
+            goToPrevSlide();
+        }
+    });

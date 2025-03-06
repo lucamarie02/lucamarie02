@@ -131,8 +131,10 @@ h6 {
     transition: font-size 0.3s ease-in-out;
     position: relative;
     top: 10%;
+    cursor: pointer;
 
   }
+
 
   #scroll-hide {
     font-size: 1.3vw; /* Bleibt immer gleich */
@@ -142,13 +144,6 @@ h6 {
     margin-left: -0.5%;
   }
 
-  .container-head.shrink {
-    height: 2vw; 
-  }
-
-  .container-head.shrink #platform-trigger {
-    font-size: 1.3vw; 
-  }
 
 .container {
     display: flex;                
@@ -175,7 +170,6 @@ h6 {
     width: 50%; 
     position: relative;
     box-shadow: none;
-
     aspect-ratio: 3 / 2;
 }
 
@@ -265,9 +259,7 @@ h1#platform-trigger {
     background-color:  #6b6b6b;
 }
 
-#platform-trigger {
-    cursor: pointer;
-}
+
 
 /* Klasse für sichtbares Overlay */
 .platform-overlay.active {
@@ -285,6 +277,11 @@ h1#hochladen-trigger {
     z-index: 1;
     font-size: 1.3vw;
 
+}
+
+#hochladen-trigger {
+    cursor: pointer;
+    top:10%;
 }
 
 .hochladen-overlay {
@@ -342,9 +339,7 @@ h1#hochladen-trigger {
     background-color:  #6b6b6b;
 }
 
-#hochladen-trigger {
-    cursor: pointer;
-}
+
 
 /* Klasse für sichtbares Overlay */
 .hochladen-overlay.active {
@@ -423,6 +418,100 @@ h1#hochladen-trigger {
 
 }
 
+/* Mobile Ansicht für iPhones (bis 480px Breite) */
+@media only screen and (max-width: 480px) {
+
+    /* Schriftgrößen anpassen */
+    h1, h2, h3, h4, p { 
+        font-size: 4vw;
+
+}
+
+h5 {
+    font-size: 5vw;
+}
+
+    /* Header anpassen */
+    .container-head {
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 10vw;
+        background-color: #ffffff;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        z-index: 1000;
+        margin: 0px;
+        padding: 8px;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 0.35%;
+        text-align: center;
+        border-bottom: 1px solid black;
+        
+    }
+
+    #scroll-hide {
+        font-size: 4vw; /* Bleibt immer gleich */
+        left: 0%;
+        position: relative;
+        top: 0%; 
+        margin-left: -0.5%;
+      }
+
+    h1#hochladen-trigger {
+        font-size: 4vw;
+    }  
+
+    #platform-trigger, #hochladen-trigger {
+        font-size: 4vw;
+        text-align: center;
+    }
+
+    /* Grid für Bilder flexibler machen */
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10vw;
+    }
+
+    /* Bilder und Overlays anpassen */
+    .item {
+        width: 100%;  /* Volle Breite */
+        aspect-ratio: 3/2; /* Etwas höher für bessere Darstellung */
+        position: relative;
+        overflow: hidden;
+    }
+
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Bild füllt den Container ohne Verzerrung */
+}
+
+
+    /* Popups */
+    .platform-overlay, .hochladen-overlay {
+        top: 10vw;
+        height: 90vh;
+        
+    }
+
+    .platform-content, .hochladen-content {
+        max-width: 90%;
+        
+    }
+
+    /* Close-Button größer */
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
 
 
 
