@@ -8,7 +8,9 @@
 
 }
 
-
+body {
+text-transform: lowercase;
+}
 
 h1
 {
@@ -489,6 +491,16 @@ button:hover,
 button:active {
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 480px) {

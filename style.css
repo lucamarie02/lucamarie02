@@ -13,6 +13,7 @@
 body {
     font-family: "elza-text", sans-serif;  
     background: white;
+    text-transform: lowercase;
 }
 
 /* Header */
@@ -42,6 +43,7 @@ h3 {
     font-size: 2.5vw;
     font-weight: normal; 
     font-style: italic;
+    text-transform: lowercase;
  }
 
  h4 {
